@@ -2,7 +2,7 @@ import sys
 import logging
 import poker.deck as dec
 
-formatter = logging.Formatter('%(asctime)s [%(module)14s]' +
+formatter = logging.Formatter('%(asctime)s [%(module)14s]'
                               '[%(levelname)8s] %(message)s')
 log = logging.getLogger()
 log.setLevel(logging.INFO)

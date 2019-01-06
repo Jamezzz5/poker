@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import random
 import logging
 import itertools
@@ -5,10 +6,19 @@ import itertools
 log = logging.getLogger()
 
 
+class Card(object):
+    def __init__(self):
+        self.suits = ['♥', '♦', '♠', '♣']
+        self.rank = {x + 2: str(x + 2) for x in list(range(9))}
+        self.face_cards = {11: 'J', 12: 'Q', 13: 'K', 14: 'A'}
+        self.rank.update(self.face_cards)
+
+
 class Deck(object):
     def __init__(self):
-        self.suits = ['h', 'd', 's', 'c']
-        self.rank = {x + 2: str(x + 2) for x in list(range(9))}
+        self.suits = ['♥', '♦', '♠', '♣']
+        self.rank = {x + 2: str(x + 2).encode("utf-8").decode("utf-8")
+                     for x in list(range(9))}
         self.face_cards = {11: 'J', 12: 'Q', 13: 'K', 14: 'A'}
         self.rank.update(self.face_cards)
         self.community = []
